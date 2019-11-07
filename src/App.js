@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [color, setColor] = useState('#282c34');
+
+  function handleBtnClick() {
+    setColor(color === '#282c34' ? '#00ccff' : '#282c34');
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" style={{ backgroundColor: color }}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This is a React demo.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleBtnClick}>改变主题</button>
       </header>
     </div>
   );
